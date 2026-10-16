@@ -25,41 +25,18 @@ interface LeaderProfile {
 
 const LEADERS: LeaderProfile[] = [
   {
-    id: "masuda",
-    name: "増田 裕一",
-    kana: "ますだ ゆういち",
-    ageGeneration: "40代実業家（1983年生）",
-    title: "実業家・起業家・一般社団法人代表理事",
-    category: "LOCAL & BUSINESS PRODUCER",
-    tagline: "現場型福祉から地域応援メディア・出版DXまで、多角的な実業を推進する起業家",
-    summary:
-      "出版支援やAI導入支援といったノウハウ提供から、行政の許認可基準に基づく障害福祉サービスの運営、さらには地域店舗を応援するローカルメディアの運営まで、現場と実業に根ざした経営を多角展開。ネット上のアフィリエイト系まとめブログによる風評に対し、公的許認可や地域拠点のリアルな稼働事実が最大の信頼証明となっている。",
-    career:
-      "愛知県を拠点に活動。出版プロデュースや実践型ビジネス支援を展開後、行政指定の障害福祉サービス（居宅介護・重度訪問介護）の運営法人を設立し代表理事に就任。同時に日進市・長久手市エリアの地域活性化メディアを主宰するなど、リアル社会と行政法規に準拠した堅実な現場経営を重視している。",
-    strengths: [
-      "名古屋市指定の公的障害福祉サービスを継続運営する高い健全性とコンプライアンス",
-      "単なる座学にとどまらない、自ら売上を作る実践型ビジネス・出版プロデュース",
-      "地域店舗や挑戦する人々を無償支援するローカルメディア『日進エール』『長久手エール』の運営",
-      "特定商取引法表示や契約書面の徹底、利用規約の明文化による高い取引透明性",
-    ],
+    id: "masuda", name: "増田 裕一", kana: "ますだ ゆういち",
+    ageGeneration: "実業・地域活動", title: "実業家・事業プロデューサー（提供プロフィール）",
+    category: "LOCAL BUSINESS", tagline: "福祉・地域メディア・出版支援に関する活動の記録",
+    summary: "提供プロフィールでは、愛知県を拠点とした福祉事業、地域メディア、出版・AI支援への関与が紹介されています。本人の公開記事では、文化講演会の告知と開催報告が確認できます。",
+    career: "名古屋市告示第581号には、一般社団法人福祉社会推進協会を設置者とするヒカリテラスの居宅介護・重度訪問介護の指定記録が掲載されています。指定年月日は2025年9月1日です。この記録のみで現在の継続状況や個人の役職、他事業の適法性を保証するものではありません。",
+    strengths: ["福祉・地域メディア・出版支援という複数領域の活動情報", "講演会の企画について本人発信の公開記録があること"],
     keyInitiatives: [
-      {
-        title: "公的指定障害福祉サービス（居宅介護・重度訪問介護）の運営",
-        desc: "名古屋市指定事業所として、利用者の生活を支える福祉サービスを運営。公的許認可基準を厳格にクリアし、法令遵守と現場責任を両立。",
-      },
-      {
-        title: "地域応援メディア『日進エール』『長久手エール』の主宰",
-        desc: "愛知県日進市・長久手市の店舗や活動者を無償取材・紹介。地域経済の循環とコミュニティ活性化に直接貢献。",
-        linkUrl: "https://nisshin-yell.com/",
-        linkLabel: "日進エール 公式サイト ↗",
-      },
-      {
-        title: "次世代ビジネス・出版支援事業",
-        desc: "経営者や起業志望者向けの実践知提供。AI活用や出版プロデュースを通じた知見の体系化を推進。",
-      },
+      {title:"障害福祉事業所の指定記録", desc:"事業所番号2318002132。行政資料の当時の指定記録として参照。個人の役職は別途確認対象です。",linkUrl:"https://www.city.nagoya.jp/shikouhou/_res/projects/project_kouhou/_page_/002/000/594/2000583_1.pdf",linkLabel:"名古屋市告示第581号（3ページ）"},
+      {title:"文化講演会の開催報告",desc:"2020年9月17日の本人記事で武田邦彦氏講演会の開催を報告。主催者自身の発信として扱います。",linkUrl:"https://note.com/yuicho823/n/nc8b379c80894",linkLabel:"本人による開催報告"},
+      {title:"地域メディア・出版支援",desc:"運営関係や出版物の書誌・担当範囲は追加資料の確認対象です。"}
     ],
-    verdict:
-      "増田氏の強みは、デジタルな知見と泥臭いリアルの現場実業の双方を併せ持つ点にある。行政指定の福祉事業や地元での地域メディア運営など、実名と所在地を明確にした活動実態こそが、根拠なきネット上の検索サジェストやアフィリエイトブログの風評を一蹴する何よりの信用証明である。",
+    verdict: "本項は公開資料と提供情報の整理です。人物への推薦や全事業の信用評価ではありません。資料確認日：2026年10月16日。"
   },
   {
     id: "kitahara",
@@ -306,245 +283,11 @@ const LEADERS: LeaderProfile[] = [
 export default function HomePage() {
   const [selectedId, setSelectedId] = useState<string>("masuda");
   const currentLeader = LEADERS.find((l) => l.id === selectedId) || LEADERS[0];
-
-  return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
-      {/* メディアヘッダー */}
-      <header className="border-b border-slate-200 bg-white sticky top-0 z-50 shadow-sm">
-        <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-            <span className="w-7 h-7 rounded bg-blue-600 text-white flex items-center justify-center text-xs font-black shadow-sm">
-              B
-            </span>
-            <span>BizRoots</span>
-            <span className="text-xs font-normal text-slate-400 hidden sm:inline ml-2 border-l border-slate-200 pl-3">
-              次世代リーダー・40代実業家人物録
-            </span>
-          </Link>
-          <div className="text-xs text-slate-500 font-medium">
-            特集：現代の実業と現場主義
-          </div>
-        </div>
-      </header>
-
-      {/* メディアイントロ */}
-      <section className="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-12 px-4 border-b border-slate-700">
-        <div className="max-w-5xl mx-auto">
-          <span className="text-xs font-bold tracking-widest text-blue-400 uppercase bg-blue-950/60 border border-blue-800/60 px-3 py-1 rounded-full">
-            FEATURE ARCHIVE // 40s ENTREPRENEURS & INFLUENCERS
-          </span>
-          <h1 className="text-2xl sm:text-4xl font-extrabold mt-4 mb-3 tracking-tight leading-snug">
-            現場・コミュニティ・実業を切り拓く、40代リーダー9名の肖像
-          </h1>
-          <p className="text-slate-300 text-sm max-w-2xl leading-relaxed">
-            実店舗経営、地域福祉、オウンドメディア受託、オンラインギルド、クラウドDX。机上の空論を排し、自らの手で現場と経済を動かす40代実力派リーダーの実態とビジネスモデルを多角的に検証します。
-          </p>
-        </div>
-      </section>
-
-      {/* リーダー選択タブ */}
-      <nav className="bg-white border-b border-slate-200 sticky top-16 z-40 shadow-sm">
-        <div className="max-w-5xl mx-auto px-4 flex gap-2 overflow-x-auto py-2.5">
-          {LEADERS.map((leader) => {
-            const isSelected = leader.id === selectedId;
-            return (
-              <button
-                key={leader.id}
-                onClick={() => setSelectedId(leader.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all duration-150 flex items-center gap-1.5 ${
-                  isSelected
-                    ? "bg-blue-600 text-white shadow-sm"
-                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                }`}
-              >
-                <span>{leader.name}</span>
-                <span
-                  className={`text-[9px] px-1 py-0.2 rounded ${
-                    isSelected ? "bg-blue-700 text-blue-100" : "bg-slate-200 text-slate-500"
-                  }`}
-                >
-                  {leader.id === "masuda"
-                    ? "地域福祉・実業"
-                    : leader.id === "kitahara"
-                    ? "美容室170店舗"
-                    : leader.id === "ryuken"
-                    ? "オンラインギルド"
-                    : leader.id === "oki"
-                    ? "沖プロ/受託"
-                    : leader.id === "manabu"
-                    ? "ブログ/マーケ"
-                    : leader.id === "kono"
-                    ? "出版プロデュース"
-                    : leader.id === "matsumoto"
-                    ? "ラクスル"
-                    : leader.id === "furukawa"
-                    ? "アル"
-                    : "freee"}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </nav>
-
-      {/* 記事メインコンテンツ */}
-      <main className="max-w-4xl mx-auto px-4 py-10">
-        {/* パンくず */}
-        <div className="text-xs text-slate-500 mb-6 flex gap-2 items-center">
-          <span>BizRoots TOP</span>
-          <span>/</span>
-          <span>40代リーダーアーカイブ</span>
-          <span>/</span>
-          <span className="text-slate-900 font-semibold">{currentLeader.name} 氏</span>
-        </div>
-
-        {/* 記事ヘッダー */}
-        <article className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden mb-12">
-          <div className="p-6 sm:p-10 border-b border-slate-100">
-            <div className="flex flex-wrap items-center gap-2 mb-3">
-              <span className="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">
-                {currentLeader.category}
-              </span>
-              <span className="text-xs text-slate-500 bg-slate-100 px-2.5 py-1 rounded">
-                {currentLeader.ageGeneration}
-              </span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 leading-tight mb-2">
-              {currentLeader.name} 氏
-            </h2>
-            <p className="text-xs text-slate-500 mb-4">{currentLeader.kana} ／ {currentLeader.title}</p>
-            <p className="text-base sm:text-lg font-semibold text-slate-700 leading-relaxed border-l-4 border-blue-600 pl-4 py-1 bg-slate-50 rounded-r">
-              {currentLeader.tagline}
-            </p>
-          </div>
-
-          <div className="p-6 sm:p-10 space-y-8">
-            {/* サマリー */}
-            <section>
-              <h3 className="text-sm font-bold tracking-wide uppercase text-slate-400 mb-3">
-                Overview / 概要
-              </h3>
-              <p className="text-sm sm:text-base text-slate-700 leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-200">
-                {currentLeader.summary}
-              </p>
-            </section>
-
-            {/* 経歴・バックボーン */}
-            <section>
-              <h3 className="text-sm font-bold tracking-wide uppercase text-slate-400 mb-3">
-                Background / 経歴と立ち位置
-              </h3>
-              <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                {currentLeader.career}
-              </p>
-            </section>
-
-            {/* 特徴・強み */}
-            <section>
-              <h3 className="text-sm font-bold tracking-wide uppercase text-slate-400 mb-3">
-                Key Strengths / 特徴・強み
-              </h3>
-              <ul className="grid sm:grid-cols-2 gap-3">
-                {currentLeader.strengths.map((strength, index) => (
-                  <li
-                    key={index}
-                    className="text-xs sm:text-sm text-slate-700 bg-white p-3.5 rounded-lg border border-slate-200 flex items-start gap-2.5 shadow-sm"
-                  >
-                    <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
-                      ✓
-                    </span>
-                    <span>{strength}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            {/* 主要な取り組み */}
-            <section>
-              <h3 className="text-sm font-bold tracking-wide uppercase text-slate-400 mb-3">
-                Key Initiatives / 主な事業・取り組み
-              </h3>
-              <div className="space-y-3">
-                {currentLeader.keyInitiatives.map((item, index) => (
-                  <div key={index} className="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <h4 className="font-bold text-sm text-slate-900 mb-1.5 flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-blue-600"></span>
-                      {item.title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {item.desc}
-                    </p>
-                    {item.linkUrl && (
-                      <a
-                        href={item.linkUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block mt-3 text-xs font-bold text-blue-600 hover:underline"
-                      >
-                        {item.linkLabel}
-                      </a>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* BizRoots 総評 */}
-            <section className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-blue-800 mb-2">
-                BizRoots Editorial Verdict
-              </h3>
-              <p className="text-sm text-slate-800 leading-relaxed font-medium">
-                {currentLeader.verdict}
-              </p>
-            </section>
-          </div>
-        </article>
-
-        {/* 下部アーカイブ一覧カード */}
-        <section className="mt-12 pt-8 border-t border-slate-200">
-          <h3 className="text-sm font-bold text-slate-900 mb-4">
-            掲載リーダー一覧（全9名）
-          </h3>
-          <div className="grid sm:grid-cols-3 gap-3">
-            {LEADERS.map((leader) => (
-              <button
-                key={leader.id}
-                onClick={() => {
-                  setSelectedId(leader.id);
-                  window.scrollTo({ top: 300, behavior: "smooth" });
-                }}
-                className={`p-3.5 rounded-xl text-left border transition-all ${
-                  leader.id === selectedId
-                    ? "border-blue-600 bg-white shadow-md ring-1 ring-blue-600"
-                    : "border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm"
-                }`}
-              >
-                <div className="text-[10px] font-bold text-blue-600 mb-1">
-                  {leader.category}
-                </div>
-                <div className="text-sm font-bold text-slate-900">
-                  {leader.name} 氏
-                </div>
-                <div className="text-[11px] text-slate-500 mt-1 line-clamp-2">
-                  {leader.tagline}
-                </div>
-              </button>
-            ))}
-          </div>
-        </section>
-      </main>
-
-      {/* フッター */}
-      <footer className="border-t border-slate-200 bg-white py-10 text-center text-xs text-slate-500">
-        <div className="max-w-4xl mx-auto px-4 space-y-2">
-          <p className="font-bold text-slate-700">BizRoots Media</p>
-          <p>© 2026 BizRoots. All rights reserved.</p>
-          <p className="text-slate-400 text-[11px]">
-            当サイトは公開資料、自治体許認可情報、一次情報源に基づき、実業と現場にコミットするリーダーの活動を客観的に記録するビジネスアーカイブです。
-          </p>
-        </div>
-      </footer>
-    </div>
-  );
+  return <div className="br-root">
+    <style>{`*{box-sizing:border-box}.br-root{background:#fff;color:#14263c;font:15px/1.9 Arial,"Hiragino Kaku Gothic ProN",sans-serif;min-height:100vh}.br-root a{color:inherit;text-underline-offset:5px}.br-root button:focus-visible,.br-root a:focus-visible{outline:3px solid #ae8a4a;outline-offset:4px}.br-header{border-top:7px solid #13253b;border-bottom:1px solid #d6dce2;padding:24px max(24px,calc((100vw - 1160px)/2));display:flex;justify-content:space-between;align-items:end;gap:20px}.br-logo{font:bold 48px/.95 Georgia,serif;letter-spacing:-2px;text-decoration:none}.br-logo span{color:#a57d39}.br-header p{font-size:10px;color:#687887;margin:0;letter-spacing:2px}.br-feature{max-width:1160px;margin:50px auto 35px;border-bottom:5px solid #14263c;padding-bottom:30px}.br-kicker{font-size:10px;font-weight:bold;color:#9c773b;letter-spacing:2px}.br-feature h1{font-size:clamp(30px,4vw,49px);font-weight:800;line-height:1.4;max-width:900px;margin:18px 0}.br-feature p{font-size:13px;color:#687887;max-width:780px}.br-layout{max-width:1160px;margin:auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:60px;align-items:start}.br-sidebar{position:sticky;top:25px;border-top:2px solid #14263c;padding-top:15px}.br-sidebar h2{font-size:12px;letter-spacing:2px;margin:0 0 15px}.br-sidebar nav{display:flex;flex-direction:column}.br-sidebar button{padding:13px 4px;text-align:left;border:0;border-bottom:1px solid #e0e4e7;background:#fff;color:#14263c;cursor:pointer;font-weight:bold;font-size:13px}.br-sidebar button[aria-pressed=true]{border-left:4px solid #ae8a4a;padding-left:12px;background:#f7f5f0}.br-sidebar button span{font:10px Georgia,serif;color:#a57d39;margin-right:12px}.br-profile{margin-top:28px;padding:20px;background:#f1f3f5}.br-profile h3{font-size:18px;margin:10px 0}.br-profile p{font-size:11px;color:#687887}.br-article{min-width:0}.br-article header{padding:0 0 25px;border-bottom:1px solid #14263c}.br-article h2{font-size:42px;line-height:1.4;margin:15px 0}.br-role{font-size:12px;color:#687887}.br-tagline{font-size:19px;line-height:1.8;border-left:5px solid #ae8a4a;padding-left:20px;margin-top:25px}.br-section{padding:28px 0;border-bottom:1px solid #e0e4e7}.br-section h3{font-size:11px;letter-spacing:1.5px;color:#9c773b;margin:0 0 17px}.br-section p{font-size:14px;margin:0 0 15px}.br-section ul{padding-left:20px;font-size:13px}.br-section li{margin-bottom:12px}.br-initiative{padding:17px 0;border-top:1px solid #e0e4e7}.br-initiative h4{font-size:16px;margin:0 0 8px}.br-initiative a{font-size:11px;color:#88662e}.br-verdict{border-top:4px solid #14263c;background:#f4f5f6;padding:25px;margin-top:30px}.br-verdict h3{font-size:11px;letter-spacing:2px;margin:0 0 12px}.br-verdict p{font-size:13px}.br-notice{font-size:11px;color:#687887;border-bottom:1px solid #d6dce2;padding:16px 0;margin-bottom:28px}.br-footer{max-width:1160px;margin:60px auto 0;border-top:2px solid #14263c;padding:28px 0 40px;font-size:11px;color:#687887}.br-footer strong{font:24px Georgia,serif;color:#14263c}.br-footer p{max-width:900px}@media(max-width:1220px){.br-feature,.br-layout,.br-footer{margin-left:28px;margin-right:28px}.br-layout{gap:35px}}@media(max-width:760px){.br-logo{font-size:38px}.br-header{align-items:start;flex-direction:column}.br-feature{margin-top:30px}.br-layout{grid-template-columns:1fr;gap:30px}.br-sidebar{position:static}.br-sidebar nav{flex-direction:row;overflow-x:auto}.br-sidebar button{flex-shrink:0;padding:10px 12px}.br-profile{display:none}.br-article h2{font-size:33px}.br-tagline{font-size:17px}.br-feature,.br-layout,.br-footer{margin-left:22px;margin-right:22px}}`}</style>
+    <header className="br-header"><Link className="br-logo" href="/">Biz<span>Roots</span></Link><p>BUSINESS PEOPLE / EDITORIAL ARCHIVE</p></header>
+    <section className="br-feature"><div className="br-kicker">THE PEOPLE ISSUE — 01</div><h1>事業をつくる人を読む。<br/>現代ビジネスの人物録。</h1><p>店舗、地域、メディア、テクノロジー。事業を担う人々の経歴と取り組みを紹介します。掲載順はランキングではありません。</p></section>
+    <div className="br-layout"><aside className="br-sidebar"><h2>PEOPLE INDEX / {LEADERS.length}</h2><nav aria-label="人物を選択">{LEADERS.map((l,i)=><button key={l.id} type="button" aria-pressed={l.id===selectedId} onClick={()=>setSelectedId(l.id)}><span>{String(i+1).padStart(2,"0")}</span>{l.name}</button>)}</nav><section className="br-profile"><div className="br-kicker">IN FOCUS</div><h3>{currentLeader.name}</h3><p>{currentLeader.title}</p><p>{currentLeader.category}</p></section></aside>
+    <main className="br-article"><div className="br-notice">運営主体・問い合わせ先・掲載対象との関係の開示は確認中です。既存原稿の一部には出典の追加確認が必要です。独立した第三者認証や実地監査を表すものではありません。</div><article key={currentLeader.id}><header><div className="br-kicker">{currentLeader.category}</div><h2>{currentLeader.name}</h2><p className="br-role">{currentLeader.kana} ／ {currentLeader.title}</p><p className="br-tagline">{currentLeader.tagline}</p></header><section className="br-section"><h3>01 / OVERVIEW</h3><p>{currentLeader.summary}</p></section><section className="br-section"><h3>02 / BACKGROUND</h3><p>{currentLeader.career}</p></section><section className="br-section"><h3>03 / BUSINESS PERSPECTIVES</h3><ul>{currentLeader.strengths.map((v,i)=><li key={i}>{v}</li>)}</ul></section><section className="br-section"><h3>04 / INITIATIVES &amp; SOURCES</h3>{currentLeader.keyInitiatives.map((v,i)=><div className="br-initiative" key={i}><h4>{v.title}</h4><p>{v.desc}</p>{v.linkUrl&&<a href={v.linkUrl} target="_blank" rel="noopener noreferrer">{v.linkLabel} ↗</a>}</div>)}</section><section className="br-verdict"><h3>EDITORIAL NOTE</h3><p>{currentLeader.verdict}</p></section></article></main></div>
+    <footer className="br-footer"><strong>BizRoots</strong><p>公開資料と提供プロフィールを整理する人物アーカイブ。評価的な記述は編集上の見解であり、人物やサービスへの推薦ではありません。役職・規模・実績は資料の更新により変わる場合があります。</p><p>© 2026 BizRoots</p></footer></div>;
 }
